@@ -1,0 +1,7 @@
+(define (fr n)
+    (cond ((< n 3) n)
+      (else (+ (fr (- n 1))
+               (* (fr (- n 2)) 2)
+               (* (fr (- n 3)) 3)
+               )
+    )))
