@@ -8,15 +8,29 @@
 
 
 (define (f n)
-    (fi-iter 0 n))
+    (if (< n 3)
+        n
+        (fi-iter 0 n))
+    )
 
 ;Not correct yet
-(define (fi-iter result n)
-    (if (< n 3)
-        result
-        (fi-iter (+ (- n 1) (* (- n 2) 2) (* (- n 3) 3)) (- n 1))
+(define (fi-iter currentSum count)
+    (if (< count 3)
+        currentSum
+        (fi-iter (+ currentSum (+ (- count 1) (* (- count 2) 2) (* (- count 3) 3)) (- count 1)) (- count 1))
     ))
 
 
 (define (testf n)
     (= (f n) (fr n)))
+
+
+;Look at this for inspiration
+
+(define (fib2 n)
+    (fib-iter 1 0 n))
+
+(define (fib-iter a b count)
+    (if (= count 0)
+        b
+        (fib-iter (+ a b) a (- count 1))))
