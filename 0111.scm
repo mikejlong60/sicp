@@ -11,13 +11,14 @@
     (if (< n 3)
         n
         (fi-iter 0 n))
-    )
+)
 
 ;Not correct yet
 (define (fi-iter currentSum count)
-    (if (< count 3)
+    (if (= count 3)
         currentSum
-        (fi-iter (+ currentSum (+ (- count 1) (* (- count 2) 2) (* (- count 3) 3)) (- count 1)) (- count 1))
+        (fi-iter (+ currentSum (+ (- count 1) (* (- count 2) 2) (* (- count 3) 3))) (- 1 count))
+;        (+ (fi-iter currentSum (- count 1)) (* ((fi-iter currentSum (- count 2)) 2)) (* ((fi-iter currentSum (- count 3)) 3)))
     ))
 
 
